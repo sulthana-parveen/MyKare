@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { TextInput } from 'react-native-paper';
+import { TextInput, } from 'react-native-paper';
+import type { KeyboardTypeOptions } from 'react-native';
+import { globalStyles } from '../styles/styles';
 
 interface InputFieldProps {
   label: string;
   value: string;
   onChangeText: (text: string) => void;
   secureTextEntry?: boolean;
+  keyboardType?: KeyboardTypeOptions;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -14,6 +17,7 @@ const InputField: React.FC<InputFieldProps> = ({
   value,
   onChangeText,
   secureTextEntry = false,
+  keyboardType = 'default',
 }) => {
   return (
     <TextInput
@@ -22,16 +26,11 @@ const InputField: React.FC<InputFieldProps> = ({
       onChangeText={onChangeText}
       mode="outlined"
       secureTextEntry={secureTextEntry}
-      style={styles.input}
+      keyboardType={keyboardType}
+      style={globalStyles.input}
     />
   );
 };
 
 export default InputField;
 
-const styles = StyleSheet.create({
-  input: {
-    width: '100%',
-    marginBottom: 16,
-  },
-});
