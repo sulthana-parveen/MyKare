@@ -148,7 +148,8 @@ const AdminDashBoard: React.FC = () => {
     try {
       const res = await axios.get('https://ipinfo.io/json'); 
       setIpAddress(res.data.ip);
-      setCountry(res.data.country);
+     setCountry(`${res.data.country} (${res.data.city}, ${res.data.region})`);
+
     } catch (error) {
       console.error('Error fetching IP or country:', error);
       Alert.alert('Error', 'Unable to fetch IP and country.');
