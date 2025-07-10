@@ -33,7 +33,7 @@ export const globalStyles = StyleSheet.create({
   button: {
     width: width*0.5,
     paddingVertical: height*0.007,
-    marginTop: 20,
+    marginTop: height*0.03,
     alignSelf:'center'
   },
   buttonText:{
@@ -67,4 +67,15 @@ export const globalStyles = StyleSheet.create({
     marginBottom: 24,
     textAlign: 'center',
   },
+  touchButton:{
+     width: width*0.5,
+    paddingVertical: height*0.007,
+    marginTop:height*0.02,
+    alignSelf:'center',
+    backgroundColor:'lightgrey',
+    height:height*0.06,
+    alignItems:'center',
+    justifyContent:'center',
+    borderRadius:width*0.06
+  }
 });

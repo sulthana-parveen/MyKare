@@ -35,14 +35,13 @@ const DashBoard: React.FC = () => {
 
   const fetchIPAndCountry = async () => {
     try {
-      const ipRes = await axios.get('https://api.ipify.org?format=json');
-      setIpAddress(ipRes.data.ip);
-
-      const locationRes = await axios.get(`http://ip-api.com/json/${ipRes.data.ip}`);
-      setCountry(locationRes.data.country);
+      const res = await axios.get('https://ipinfo.io/json'); 
+      console.warn(res.data);
+      setIpAddress(res.data.ip);
+      setCountry(res.data.country); 
     } catch (error) {
-      console.error('Error fetching IP or location:', error);
-      Alert.alert('Network Error', 'Could not fetch IP and country.');
+      console.error('Error fetching IP or country:', error);
+      Alert.alert('Error', 'Unable to fetch IP and country.');
     }
   };
 
